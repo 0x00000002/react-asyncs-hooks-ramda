@@ -1,6 +1,7 @@
 export const common = {
   siteName: 'Untitled test',
   rates: {
+    'NZD': 1,
     'USD': 0.76,
     'EUR': 0.67
   }

@@ -40,5 +40,11 @@
       "__rewire_reset_all__"
     ],
     "parser": "babel-eslint"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
