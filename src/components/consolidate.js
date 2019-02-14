@@ -14,8 +14,15 @@ const repos = [
   { name: tShirts, type: 'T-Shirts' }
 ]
 
+const readRepo = (repo) =>
+  new Promise((resolve) =>
+    setTimeout(() =>
+      resolve(repo.getAll()), 3000
+    )
+  )
+
 const getData = () => Promise.all(
-  repos.map(repo => ({ data: repo.name.getAll(), type: repo.type})))
+  repos.map(async (repo) => ({ data: await readRepo(repo.name), type: repo.type})))
 
 const toFixed = number => number.toFixed(2)
 const exchange = rate => R.compose(toFixed, R.multiply(rate))
