@@ -12,15 +12,15 @@ const Render = () => {
     const currencies = Object.keys(common.rates)
     !started && Promise.all(currencies
       .map(currency =>
-        consolidate(rates[currency])
+        consolidate(common.rates[currency])
           .then(repo => ({ currency, data: repo }))
       )
     )
     .then((repos) => {
       setData(repos)
+      complete(true)
     })
     start(true)
-    data.length === currencies.length ? complete(true) : complete(false)
   });
 
   return(
