@@ -14,22 +14,19 @@ const repos = [
   { name: tShirts, type: 'T-Shirts' }
 ]
 
+const onPrice = R.lensProp('price')
+const pickSome = R.map(R.pick(['id','name','price']))
+const addType = type => R.map(R.assoc('type', type))
 const toFixed = number => number.toFixed(2)
 const exchange = rate => R.compose(toFixed, R.multiply(rate))
-const currency = rate => R.map(R.over(R.lensProp('price'), exchange(rate)))
-const pick = R.map(R.pick(['id','name','price']))
-const addType = type => R.map(R.assoc('type', type))
-const transform = (rate, type) => R.compose(addType(type), currency(rate), pick)
+const changeCurrency = rate => R.map(R.over(onPrice, exchange(rate)))
+const transform = (rate, type) => R.compose(addType(type), changeCurrency(rate), pickSome)
 
 const rand = (start = 1, end = 10) => parseInt(Math.random() * end) % (end-start+1) + start
-const done = ({timer, seconds, repo, resolve}) => {
-  resolve(repo.getAll())
-  console.log(`Promise #${timer} (${seconds} secs), resolved.\n`)
-}
-
+const done = ({timer, seconds, repo, resolve}) => resolve(repo.getAll())
 const readRepo = (repo) =>
   new Promise((resolve) => {
-      const seconds = rand()
+      const seconds = rand(1, 5)
       const timer = setTimeout(() =>
         done({timer, seconds, repo, resolve}), seconds * 1000
       )
