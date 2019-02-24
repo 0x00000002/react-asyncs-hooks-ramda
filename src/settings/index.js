@@ -20,10 +20,9 @@ const _settings = {
   }
 }
 
-const settings = Object.assign(
-  {},
+const settings = [
   common,
   _settings[process.env.NODE_ENV]
-)
+]
 
 export default settings
