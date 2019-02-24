@@ -1,6 +1,7 @@
 import React from 'react'
-import Render from './Render'
+import Table from './Table'
 import { mount } from 'enzyme'
+import Render from './Render'
 
 describe('components/Render', function () {
   it('should contain 3 tables', async function () {
@@ -11,12 +12,12 @@ describe('components/Render', function () {
   })
 
   it('is not empty', async function () {
-    const wrapper = mount(<Render />)
+    const wrapper = mount(<Table />)
     expect(wrapper.contains(<tr><td></td></tr>)).toBe(false)
   })
 
   it('should contain price', async function () {
-    const wrapper = mount(<Render />)
+    const wrapper = mount(<Table />)
     expect(wrapper.text()).toMatch(/\d+\.\d{2}/)
   })
 })
