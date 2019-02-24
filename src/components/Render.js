@@ -3,16 +3,13 @@ import consolidate from './consolidate'
 import Table from './Table'
 import { common } from './../settings/'
 
-const rates = common.rates
-
 const Render = () => {
-
   const [data, setData] = useState([])
   const [started, start] = useState(false)
   const [loaded, complete] = useState(false)
 
   useEffect(() => {
-    const currencies = Object.keys(rates)
+    const currencies = Object.keys(common.rates)
     !started && Promise.all(currencies
       .map(currency =>
         consolidate(rates[currency])
