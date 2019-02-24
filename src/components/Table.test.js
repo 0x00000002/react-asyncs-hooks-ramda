@@ -18,7 +18,7 @@ const fake = {
   }
 }
 
-describe('components/Render', function () {
+describe('components/Table', function () {
   const wrapper = mount(<Table currency={fake.repo.currency} data={fake.repo.data} />)
 
   it('should contain 3 tables', async function () {

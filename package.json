@@ -10,7 +10,7 @@
     "ramda": "^0.26.1",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.5",
     "react-test-renderer": "latest"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
     "eslint-plugin-react-hooks": "latest",
     "eslint-config-standard": "latest",
     "eslint-plugin-standard": "latest",
+    "react-testing-library": "latest",
     "rewire": "^4.0.1",
     "standard": "latest"
   },

@@ -57,10 +57,10 @@ describe('components/consolidate.js', function () {
 
   describe('consolidate()', function () {
     it('should return transformed data', async function () {
-      const data = consolidate(fake.rate)
+      const data = await consolidate(fake.rate)
       const firstItem = data[0][0]
       expect(firstItem.price).toEqual('6000.00')
-      expect(firstItem.type).toEqual('Lawnmower')
+      expect(firstItem.type).toEqual('Lawnmowers')
     })
   })
 })
