@@ -1,29 +1,10 @@
 import React from 'react'
 import Render from './Render'
-import Table from './Table'
 import {
   render,
   getByTitle,
-  getByLabelText,
-  wait,
   waitForElement
 } from 'react-testing-library'
-
-const fake = {
-  repo: {
-    currency: 'USD',
-    data: [
-      [
-        {
-          id: 1,
-          name: "Hewlett-Packard Rideable Lawnmower",
-          price: "2280.00",
-          type: "Lawnmowers"
-        }
-      ]
-    ]
-  }
-}
 
 describe('components/Render', function () {
   it('should wait for loading while fetching data', async function () {
