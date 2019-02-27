@@ -24,7 +24,7 @@ const Render = () => {
   });
 
   return(
-    <div>
+    <div title={'content'}>
       { !loaded && <h2>Loading, please wait ...</h2> }
       { loaded &&
         data.map(({currency, data}, idx) =>

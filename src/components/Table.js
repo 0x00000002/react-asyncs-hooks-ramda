@@ -5,7 +5,7 @@ const Table = ({ currency, data }) => {
     <table className={'table table-striped'}>
       <thead>
       <tr>
-        <td colSpan="3">Products ({currency})</td>
+        <td title={'currency'} colSpan="3">Products ({currency})</td>
       </tr>
       <tr>
         <td>Name</td>

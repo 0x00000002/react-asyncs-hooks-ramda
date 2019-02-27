@@ -22,7 +22,7 @@ describe('components/Table', function () {
   const wrapper = mount(<Table currency={fake.repo.currency} data={fake.repo.data} />)
 
   it('should contain 3 tables', async function () {
-    expect(wrapper.contains(<td colSpan="3">Products (USD)</td>)).toBe(true)
+    expect(wrapper.contains(<td title={'currency'} colSpan="3">Products (USD)</td>)).toBe(true)
   })
 
   it('is not empty', async function () {

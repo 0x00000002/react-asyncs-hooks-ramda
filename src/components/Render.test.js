@@ -1,8 +1,13 @@
 import React from 'react'
-import { mount } from 'enzyme'
 import Render from './Render'
 import Table from './Table'
-import consolidate from './consolidate'
+import {
+  render,
+  getByTitle,
+  getByLabelText,
+  wait,
+  waitForElement
+} from 'react-testing-library'
 
 const fake = {
   repo: {
@@ -22,13 +27,19 @@ const fake = {
 
 describe('components/Render', function () {
   it('should wait for loading while fetching data', async function () {
-    const wrapper = mount(<Render />)
-    expect(wrapper.contains(<h2>Loading, please wait ...</h2>)).toBe(true)
+    const { container } = render(<Render />)
+    const h2 = getByTitle(container, 'content');
+    expect(h2).toBeDefined()
+    expect(h2.textContent).toBe('Loading, please wait ...');
   })
 
   it('should mount Table when data fetched', async function () {
-    const wrapper = mount(<Render />)
-    expect(wrapper.contains(<h2>Loading, please wait ...</h2>)).toBe(false)
+    const { container } = render(<Render />)
+    const table = await waitForElement(
+      () => getByTitle(container, 'currency'),
+      { container }
+    )
+    expect(table).toBeDefined()
   })
 })
 
